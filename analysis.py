@@ -19,9 +19,8 @@ from mediapipe.tasks.python import vision
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 MODEL_PATH = os.path.join(
-    os.path.dirname(BASE_DIR),
-    "models",
-    "pose_landmarker_full.task"
+    BASE_DIR,
+    "pose_landmarker_lite.task"
 )
 
 
