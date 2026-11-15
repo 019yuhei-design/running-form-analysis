@@ -173,7 +173,7 @@ def analyze():
 
                     # 画質
                     "-preset",
-                    "medium",
+                    "ultrafast",
 
                     "-crf",
                     "23",
