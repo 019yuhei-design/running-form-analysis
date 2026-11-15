@@ -352,11 +352,25 @@ def analyze_video(
 
 
             # --------------------------
-            # BGR → RGB
+            # BGR → RGB（解析用に縮小してメモリを節約）
             # --------------------------
 
+            detection_frame = frame
+
+            max_detection_width = 640
+
+            if width > max_detection_width:
+                detection_height = int(
+                    height * max_detection_width / width
+                )
+                detection_frame = cv2.resize(
+                    frame,
+                    (max_detection_width, detection_height),
+                    interpolation=cv2.INTER_AREA
+                )
+
             rgb_frame = cv2.cvtColor(
-                frame,
+                detection_frame,
                 cv2.COLOR_BGR2RGB
             )
 
